@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+message File {
+    string name = 1;
+    bytes content = 2;
+}
+
+message Task {
+    repeated File fields = 1;
+}
+
+message Options {
+    string docker_image = 1;
+    bool record_video = 2;
+}
+
+message VisualLanguageSubmission {
+    File file = 1;
+}
+
+message Submission {
+    int32 id = 1;
+    Task task = 2;
+    Options options = 3;
+    oneof submission {
+        VisualLanguageSubmission visual_language_submission = 4;
+    }
+}
+
+message FieldResult {
+    string name = 1;
+    File verdict = 2;
+    optional File video = 3; 
+}
+
+message ErrorResult {
+    int32 kind = 1;
+    string description = 2;
+}
+
+message OkResult {
+    repeated FieldResult results = 1;
+}
+
+message Result {
+    int32 id = 1;
+    oneof result {
+        OkResult ok = 2;
+        ErrorResult error = 3;
+    }
+}
+
+message Status {
+    int32 id = 1;
+    int32 capacity = 2;
+    int32 queued = 3;
+}
+
+service GradingNode {
+    rpc Grade(stream Submission) returns (stream Result) {}
+    rpc GetStatus(google.protobuf.Empty) returns (Status) {}
+}
