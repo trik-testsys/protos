@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package trik.testsys.grading;
+
 import "google/protobuf/empty.proto";
 
 message File {
