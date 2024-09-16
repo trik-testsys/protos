@@ -3,6 +3,7 @@ syntax = "proto3";
 package trik.testsys.grading;
 
 import "google/protobuf/empty.proto";
+option csharp_namespace = "TestSys.Trik.GradingNode.Proto";
 
 message File {
     string name = 1;
