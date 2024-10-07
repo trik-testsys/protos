@@ -23,12 +23,22 @@ message VisualLanguageSubmission {
     File file = 1;
 }
 
+message PythonSubmission {
+  File file = 1;
+}
+
+message JavaScriptSubmission {
+  File file = 1;
+}
+
 message Submission {
     int32 id = 1;
     Task task = 2;
     Options options = 3;
     oneof submission {
         VisualLanguageSubmission visual_language_submission = 4;
+        PythonSubmission python_submission = 5;
+        JavaScriptSubmission javascript_submission = 6;
     }
 }
 
