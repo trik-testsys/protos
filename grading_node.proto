@@ -72,6 +72,6 @@ message Status {
 }
 
 service GradingNode {
-    rpc Grade(stream Submission) returns (stream Result) {}
+    rpc Grade(Submission) returns (Result) {}
     rpc GetStatus(google.protobuf.Empty) returns (Status) {}
 }
