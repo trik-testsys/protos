@@ -75,7 +75,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
           BRANCH_NAME: snapshots
         run: |
-          mvn clean compile deploy
+          mvn clean compile package deploy
 
       - name: Upload Maven artifacts
         uses: actions/upload-artifact@v4
