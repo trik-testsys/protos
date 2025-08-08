@@ -6,7 +6,7 @@
 
     <groupId>trik.testsys.grading</groupId>
     <artifactId>protos</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0.RELEASE</version>
     
     <name>TestSys Protos</name>
     <description>Protos dependencies for gRPC working</description>
